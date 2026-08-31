@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radius · Old Gravel Road and the months ahead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --red:#A82838; --paper:#FAFAF5; --ink:#1A1A18; --muted:#6E6A63;
+    --line:#E2DCD2; --green:#3E6B4F; --peach:#E7D9CD; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink);
+    font-family:Inter,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1100px; margin:0 auto; padding:48px 24px 96px; }
+  .kicker { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--red); margin:0 0 14px; }
+  h1 { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(32px,5vw,46px);
+    line-height:1.05; margin:0 0 12px; }
+  h1 em { font-style:italic; color:var(--red); }
+  h2 { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:28px; margin:48px 0 10px; }
+  h3 { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; margin:0; }
+  .sub { color:var(--muted); max-width:68ch; margin:0 0 16px; }
+  .sub b { color:var(--ink); }
+  .cta { display:inline-block; background:var(--red); color:#fff; text-decoration:none;
+    font-weight:600; font-size:14px; padding:12px 18px; border-radius:8px; margin:8px 12px 8px 0; }
+  .cta.ghost { background:#fff; color:var(--ink); border:1px solid var(--line); }
+  .pills { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 8px; }
+  .pill { font-family:'IBM Plex Mono',monospace; font-size:11px; border:1px solid var(--line);
+    border-radius:999px; padding:6px 12px; background:#fff; }
+  .rules { background:#fff; border:1px solid var(--line); border-radius:12px; padding:20px 22px; }
+  .rules ol { margin:8px 0 0; padding-left:18px; }
+  .rules li { margin:6px 0; font-size:14px; }
+  .legend { display:flex; flex-wrap:wrap; gap:14px; margin:16px 0 8px; font-size:12px; }
+  .sw { width:12px; height:12px; border-radius:3px; display:inline-block; margin-right:6px; vertical-align:middle; }
+  .sw-past { background:#E7D9CD; } .sw-recent { background:#DCE8DE; }
+  .sw-progress { background:#D5E0E8; } .sw-team { background:#F3D4D4; }
+  .cal { margin:12px 0 28px; overflow-x:auto; }
+  .dhead, .cgrid { display:flex; flex-wrap:wrap; min-width:640px; }
+  .dh, .cell { width:14.28%; }
+  .dh { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--muted); padding:6px; }
+  .cgrid { border-top:1px solid var(--line); }
+  .cell { min-height:92px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:6px; background:#fff; }
+  .cell.dim { background:transparent; color:#bbb; }
+  .dn { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); margin-bottom:4px; }
+  .ev { border-radius:5px; padding:4px 6px; margin-bottom:4px; font-size:11px; line-height:1.3; }
+  .ev.already { outline:1px dashed #bbb; }
+  .k-past { background:#E7D9CD; } .k-recent { background:#DCE8DE; }
+  .k-progress { background:#D5E0E8; } .k-team { background:#F3D4D4; }
+  .evk { display:block; font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:.08em;
+    text-transform:uppercase; opacity:.75; }
+  .evt { display:block; font-weight:500; }
+  .evm { display:block; font-size:10px; opacity:.7; }
+  .ig { display:flex; flex-wrap:wrap; gap:8px; background:#111; padding:10px; border-radius:12px; }
+  .tile { width:calc(33.333% - 6px); margin:0; position:relative; }
+  .tile img { width:100%; aspect-ratio:4/5; object-fit:cover; display:block; background:#222; }
+  .tile figcaption { position:absolute; left:0; right:0; bottom:0; padding:18px 8px 8px;
+    background:linear-gradient(transparent, rgba(0,0,0,.72)); color:#fff; font-size:11px; }
+  .tn { display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.08em; opacity:.8; }
+  .tk { display:block; font-size:9px; letter-spacing:.1em; text-transform:uppercase; opacity:.85; }
+  .tt { display:block; font-weight:500; }
+  .post { background:#fff; border:1px solid var(--line); border-radius:14px; padding:22px;
+    margin:0 0 22px; }
+  .phead { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px; }
+  .date { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--red); margin:0 0 4px; }
+  .project { color:var(--muted); font-size:13px; margin:4px 0 0; }
+  .typ { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--muted); }
+  .strip { display:flex; gap:10px; overflow-x:auto; padding-bottom:8px; }
+  .strip figure { margin:0; position:relative; flex:0 0 auto; }
+  .strip img { width:180px; height:225px; object-fit:cover; display:block; border-radius:8px;
+    border:1px solid var(--line); background:#EFEBE3; }
+  .snum { position:absolute; top:6px; left:6px; font-family:'IBM Plex Mono',monospace;
+    font-size:10px; color:#fff; background:rgba(26,26,24,.82); padding:3px 6px; border-radius:4px; }
+  .cap { background:#F7F4EC; border-left:3px solid var(--red); padding:14px 16px; margin-top:14px;
+    font-size:15px; line-height:1.7; max-width:72ch; }
+  .tags { font-size:12px; color:var(--muted); margin:10px 0 0; }
+  footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+  @media (max-width:720px) {
+    .tile { width:calc(33.333% - 6px); }
+    .strip img { width:148px; height:185px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">Radius Architectural Millwork · for Rick Wilson</p>
+  <h1>The millwork is in. <em>The stone is not.</em></h1>
+  <p class="sub">Old Gravel Road, Whistler. Six install posts from your walk, mixed with finished work so the feed is not all one project and not all people. Same times as before: Monday 11:00, Wednesday 9:00, Saturday 10:00.</p>
+  <p class="sub">Approve or request changes in the portal. This page is the pictures and the copy together, the way they will go out. Nothing is scheduled until you say so.</p>
+  <p><a class="cta" href="https://portal.mattanthonyphoto.com/approvals">Open approvals</a>
+     <a class="cta ghost" href="#posts">Jump to the six new posts</a></p>
+
+  <div class="pills">
+    <span class="pill"><b>6</b> new install posts</span>
+    <span class="pill">Sat 12 Sep to Sat 3 Oct</span>
+    <span class="pill">Photo first, quote last</span>
+    <span class="pill">Waiting on your approval</span>
+  </div>
+
+  <div class="rules">
+    <h3 style="margin:0 0 6px;font-size:16px;">How a week reads</h3>
+    <ol>
+      <li><b>Saturday 10:00.</b> Millwork, or a team portrait every other week.</li>
+      <li><b>Monday 11:00.</b> A finished project, alternating older work with recent completions.</li>
+      <li><b>Wednesday 9:00.</b> Install progress. Old Gravel Road first, then shop craft.</li>
+      <li><b>Team portraits sit every other Saturday.</b> They stay off the feed until you say they can go out.</li>
+    </ol>
+  </div>
+
+  <div class="legend">
+    <span><i class="sw sw-past"></i>Past project</span>
+    <span><i class="sw sw-recent"></i>Recent completed</span>
+    <span><i class="sw sw-progress"></i>Progress</span>
+    <span><i class="sw sw-team"></i>Team</span>
+    <span>Dashed outline = already scheduled</span>
+  </div>
+
+  <h2>September</h2>
+  <div class="cal"><div class="dhead"><div class='dh'>Mon</div><div class='dh'>Tue</div><div class='dh'>Wed</div><div class='dh'>Thu</div><div class='dh'>Fri</div><div class='dh'>Sat</div><div class='dh'>Sun</div></div><div class="cgrid"><div class="cell dim"><div class="dn">31</div></div><div class="cell"><div class="dn">1</div></div><div class="cell"><div class="dn">2</div><div class="ev k-recent already"><span class="evk">Recent completed</span><span class="evt">Indian River waterfront</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">3</div></div><div class="cell"><div class="dn">4</div><div class="ev k-recent already"><span class="evk">Recent completed</span><span class="evt">The Study</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">5</div></div><div class="cell"><div class="dn">6</div></div><div class="cell"><div class="dn">7</div><div class="ev k-recent already"><span class="evk">Recent completed</span><span class="evt">The Desk</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">8</div></div><div class="cell"><div class="dn">9</div><div class="ev k-recent already"><span class="evk">Recent completed</span><span class="evt">The Long View</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">10</div></div><div class="cell"><div class="dn">11</div></div><div class="cell"><div class="dn">12</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">The Cube, fourteen-foot oak</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">13</div></div><div class="cell"><div class="dn">14</div><div class="ev k-past"><span class="evk">Past project</span><span class="evt">Wet bar, closed and open</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">15</div></div><div class="cell"><div class="dn">16</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">A rabbet in the door edge</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">17</div></div><div class="cell"><div class="dn">18</div></div><div class="cell"><div class="dn">19</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">Millwork over the appliance</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">20</div></div><div class="cell"><div class="dn">21</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">Living room in Rift White Oak</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">22</div></div><div class="cell"><div class="dn">23</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">Mudroom, waiting on a top</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">24</div></div><div class="cell"><div class="dn">25</div></div><div class="cell"><div class="dn">26</div><div class="ev k-team team"><span class="evk">Team</span><span class="evt">The production team</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">27</div></div><div class="cell"><div class="dn">28</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">Flipper doors at the coffee bar</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">29</div></div><div class="cell"><div class="dn">30</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">The island, before the countertop</span><span class="evm">09:00</span></div></div><div class="cell dim"><div class="dn">1</div></div><div class="cell dim"><div class="dn">2</div></div><div class="cell dim"><div class="dn">3</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">Rift and Slip-Matched closets</span><span class="evm">10:00</span></div></div><div class="cell dim"><div class="dn">4</div></div></div></div>
+  <h2>October</h2>
+  <div class="cal"><div class="dhead"><div class='dh'>Mon</div><div class='dh'>Tue</div><div class='dh'>Wed</div><div class='dh'>Thu</div><div class='dh'>Fri</div><div class='dh'>Sat</div><div class='dh'>Sun</div></div><div class="cgrid"><div class="cell dim"><div class="dn">28</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">Flipper doors at the coffee bar</span><span class="evm">11:00</span></div></div><div class="cell dim"><div class="dn">29</div></div><div class="cell dim"><div class="dn">30</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">The island, before the countertop</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">1</div></div><div class="cell"><div class="dn">2</div></div><div class="cell"><div class="dn">3</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">Rift and Slip-Matched closets</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">4</div></div><div class="cell"><div class="dn">5</div><div class="ev k-past"><span class="evk">Past project</span><span class="evt">14-foot Walnut dining table</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">6</div></div><div class="cell"><div class="dn">7</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">Engineered passage-door parts</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">8</div></div><div class="cell"><div class="dn">9</div></div><div class="cell"><div class="dn">10</div><div class="ev k-team team"><span class="evk">Team</span><span class="evt">Joon Park</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">11</div></div><div class="cell"><div class="dn">12</div><div class="ev k-past"><span class="evk">Past project</span><span class="evt">One of our first slat ceilings, ~2008</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">13</div></div><div class="cell"><div class="dn">14</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">Plank-matched European White Oak</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">15</div></div><div class="cell"><div class="dn">16</div></div><div class="cell"><div class="dn">17</div><div class="ev k-past"><span class="evk">Past project</span><span class="evt">Mahogany Study, Whitby Estates</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">18</div></div><div class="cell"><div class="dn">19</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">Dark against natural</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">20</div></div><div class="cell"><div class="dn">21</div><div class="ev k-progress"><span class="evk">Progress</span><span class="evt">Walnut door parts on the floor</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">22</div></div><div class="cell"><div class="dn">23</div></div><div class="cell"><div class="dn">24</div><div class="ev k-team team"><span class="evk">Team</span><span class="evt">Sydney Fretzel</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">25</div></div><div class="cell"><div class="dn">26</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">Entry slat wall and stairwell</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">27</div></div><div class="cell"><div class="dn">28</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">The Room</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">29</div></div><div class="cell"><div class="dn">30</div></div><div class="cell"><div class="dn">31</div><div class="ev k-past"><span class="evk">Past project</span><span class="evt">Birdseye Tabu Maple kitchen</span><span class="evm">10:00</span></div></div><div class="cell dim"><div class="dn">1</div></div></div></div>
+  <h2>November</h2>
+  <div class="cal"><div class="dhead"><div class='dh'>Mon</div><div class='dh'>Tue</div><div class='dh'>Wed</div><div class='dh'>Thu</div><div class='dh'>Fri</div><div class='dh'>Sat</div><div class='dh'>Sun</div></div><div class="cgrid"><div class="cell dim"><div class="dn">26</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">Entry slat wall and stairwell</span><span class="evm">11:00</span></div></div><div class="cell dim"><div class="dn">27</div></div><div class="cell dim"><div class="dn">28</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">The Room</span><span class="evm">09:00</span></div></div><div class="cell dim"><div class="dn">29</div></div><div class="cell dim"><div class="dn">30</div></div><div class="cell dim"><div class="dn">31</div><div class="ev k-past"><span class="evk">Past project</span><span class="evt">Birdseye Tabu Maple kitchen</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">1</div></div><div class="cell"><div class="dn">2</div><div class="ev k-recent"><span class="evk">Recent completed</span><span class="evt">The Bookcase</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">3</div></div><div class="cell"><div class="dn">4</div><div class="ev k-past"><span class="evk">Past project</span><span class="evt">Hand-carved corbels, Ben Furse</span><span class="evm">09:00</span></div></div><div class="cell"><div class="dn">5</div></div><div class="cell"><div class="dn">6</div></div><div class="cell"><div class="dn">7</div><div class="ev k-team team"><span class="evk">Team</span><span class="evt">David MacMillan</span><span class="evm">10:00</span></div></div><div class="cell"><div class="dn">8</div></div><div class="cell"><div class="dn">9</div><div class="ev k-past"><span class="evk">Past project</span><span class="evt">Slip-matched rift walnut throughout</span><span class="evm">11:00</span></div></div><div class="cell"><div class="dn">10</div></div><div class="cell"><div class="dn">11</div></div><div class="cell"><div class="dn">12</div></div><div class="cell"><div class="dn">13</div></div><div class="cell"><div class="dn">14</div></div><div class="cell"><div class="dn">15</div></div><div class="cell"><div class="dn">16</div></div><div class="cell"><div class="dn">17</div></div><div class="cell"><div class="dn">18</div></div><div class="cell"><div class="dn">19</div></div><div class="cell"><div class="dn">20</div></div><div class="cell"><div class="dn">21</div></div><div class="cell"><div class="dn">22</div></div><div class="cell"><div class="dn">23</div></div><div class="cell"><div class="dn">24</div></div><div class="cell"><div class="dn">25</div></div><div class="cell"><div class="dn">26</div></div><div class="cell"><div class="dn">27</div></div><div class="cell"><div class="dn">28</div></div><div class="cell"><div class="dn">29</div></div><div class="cell"><div class="dn">30</div></div><div class="cell dim"><div class="dn">1</div></div><div class="cell dim"><div class="dn">2</div></div><div class="cell dim"><div class="dn">3</div></div><div class="cell dim"><div class="dn">4</div></div><div class="cell dim"><div class="dn">5</div></div><div class="cell dim"><div class="dn">6</div></div></div></div>
+
+  <h2>The grid, in order</h2>
+  <p class="sub">Instagram three-wide, earliest at top left. These are the lead frames. Old Gravel Road is the light oak in progress.</p>
+  <div class="ig"><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-the-point/s5_pcover.jpg" alt="Indian River waterfront" loading="lazy"><figcaption><span class="tn">01 · Sep 2</span><span class="tk">Recent completed</span><span class="tt">Indian River waterfront</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-study/s1_indian-arm-woodlands-study-exterior-cedar-cabin-dusk-trees.jpg" alt="The Study" loading="lazy"><figcaption><span class="tn">02 · Sep 4</span><span class="tk">Recent completed</span><span class="tt">The Study</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-study/s4_pcover.jpg" alt="The Desk" loading="lazy"><figcaption><span class="tn">03 · Sep 7</span><span class="tk">Recent completed</span><span class="tt">The Desk</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-study/s5_l.jpg" alt="The Long View" loading="lazy"><figcaption><span class="tn">04 · Sep 9</span><span class="tk">Recent completed</span><span class="tt">The Long View</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-cube-hallway-oak-hvac.jpg" alt="The Cube, fourteen-foot oak" loading="lazy"><figcaption><span class="tn">05 · Sep 12</span><span class="tk">Progress</span><span class="tt">The Cube, fourteen-foot oak</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/contemporary-walnut-estate/wetbar-open.jpg" alt="Wet bar, closed and open" loading="lazy"><figcaption><span class="tn">06 · Sep 14</span><span class="tk">Past project</span><span class="tt">Wet bar, closed and open</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-grip-pull-closed.jpg" alt="A rabbet in the door edge" loading="lazy"><figcaption><span class="tn">07 · Sep 16</span><span class="tk">Progress</span><span class="tt">A rabbet in the door edge</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-kitchen-oak-over-appliance.jpg" alt="Millwork over the appliance" loading="lazy"><figcaption><span class="tn">08 · Sep 19</span><span class="tk">Progress</span><span class="tt">Millwork over the appliance</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-the-point/s1_l.jpg" alt="Living room in Rift White Oak" loading="lazy"><figcaption><span class="tn">09 · Sep 21</span><span class="tk">Recent completed</span><span class="tt">Living room in Rift White Oak</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-mudroom-paint-install.jpg" alt="Mudroom, waiting on a top" loading="lazy"><figcaption><span class="tn">10 · Sep 23</span><span class="tk">Progress</span><span class="tt">Mudroom, waiting on a top</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/team-jul2026/radius-team-group-shop-floor.jpg" alt="The production team" loading="lazy"><figcaption><span class="tn">11 · Sep 26</span><span class="tk">Team</span><span class="tt">The production team</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-the-point/s2_pcover.jpg" alt="Flipper doors at the coffee bar" loading="lazy"><figcaption><span class="tn">12 · Sep 28</span><span class="tk">Recent completed</span><span class="tt">Flipper doors at the coffee bar</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-island-before-countertop.jpg" alt="The island, before the countertop" loading="lazy"><figcaption><span class="tn">13 · Sep 30</span><span class="tk">Progress</span><span class="tt">The island, before the countertop</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-closet-slab-doors.jpg" alt="Rift and Slip-Matched closets" loading="lazy"><figcaption><span class="tn">14 · Oct 3</span><span class="tk">Progress</span><span class="tt">Rift and Slip-Matched closets</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/luxury-estate/s3_l.jpg" alt="14-foot Walnut dining table" loading="lazy"><figcaption><span class="tn">15 · Oct 5</span><span class="tk">Past project</span><span class="tt">14-foot Walnut dining table</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/team-jul2026/radius-boxes-corner-end-on.jpg" alt="Engineered passage-door parts" loading="lazy"><figcaption><span class="tn">16 · Oct 7</span><span class="tk">Progress</span><span class="tt">Engineered passage-door parts</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/team-jul2026/radius-team-portrait-05.jpg" alt="Joon Park" loading="lazy"><figcaption><span class="tn">17 · Oct 10</span><span class="tk">Team</span><span class="tt">Joon Park</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/west-vancouver-modern-luxury/s2_west-vancouver-modern-luxury-ceiling-banded-lights-cedar-detail.jpg_full.jpg" alt="One of our first slat ceilings, ~2008" loading="lazy"><figcaption><span class="tn">18 · Oct 12</span><span class="tk">Past project</span><span class="tt">One of our first slat ceilings, ~2008</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/team-jul2026/radius-panel-stack-edge.jpg" alt="Plank-matched European White Oak" loading="lazy"><figcaption><span class="tn">19 · Oct 14</span><span class="tk">Progress</span><span class="tt">Plank-matched European White Oak</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/whitby-estates-mahogany/s1_pcover.jpg" alt="Mahogany Study, Whitby Estates" loading="lazy"><figcaption><span class="tn">20 · Oct 17</span><span class="tk">Past project</span><span class="tt">Mahogany Study, Whitby Estates</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-the-point/s3_indian-river-the-point-dining-black-wenge-cabinets-pendant-trio-leather-chairs.jpg_full.jpg" alt="Dark against natural" loading="lazy"><figcaption><span class="tn">21 · Oct 19</span><span class="tk">Recent completed</span><span class="tt">Dark against natural</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/team-jul2026/radius-shop-floor-box-run.jpg" alt="Walnut door parts on the floor" loading="lazy"><figcaption><span class="tn">22 · Oct 21</span><span class="tk">Progress</span><span class="tt">Walnut door parts on the floor</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/team-jul2026/radius-team-portrait-01.jpg" alt="Sydney Fretzel" loading="lazy"><figcaption><span class="tn">23 · Oct 24</span><span class="tk">Team</span><span class="tt">Sydney Fretzel</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-the-point/s4_pcover.jpg" alt="Entry slat wall and stairwell" loading="lazy"><figcaption><span class="tn">24 · Oct 26</span><span class="tk">Recent completed</span><span class="tt">Entry slat wall and stairwell</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-study/s2_pcover.jpg" alt="The Room" loading="lazy"><figcaption><span class="tn">25 · Oct 28</span><span class="tk">Recent completed</span><span class="tt">The Room</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/west-vancouver-modern-luxury/s3_pcover.jpg" alt="Birdseye Tabu Maple kitchen" loading="lazy"><figcaption><span class="tn">26 · Oct 31</span><span class="tk">Past project</span><span class="tt">Birdseye Tabu Maple kitchen</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/indian-arm-study/bookcase-assembled-on-site.jpg" alt="The Bookcase" loading="lazy"><figcaption><span class="tn">27 · Nov 2</span><span class="tk">Recent completed</span><span class="tt">The Bookcase</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/whitby-estates-mahogany/s2_pcover.jpg" alt="Hand-carved corbels, Ben Furse" loading="lazy"><figcaption><span class="tn">28 · Nov 4</span><span class="tk">Past project</span><span class="tt">Hand-carved corbels, Ben Furse</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/team-jul2026/radius-team-portrait-03.jpg" alt="David MacMillan" loading="lazy"><figcaption><span class="tn">29 · Nov 7</span><span class="tk">Team</span><span class="tt">David MacMillan</span></figcaption></figure><figure class="tile"><img src="https://mattanthonyphoto.github.io/radius-portal-assets/contemporary-walnut-estate/s1_pcover.jpg" alt="Slip-matched rift walnut throughout" loading="lazy"><figcaption><span class="tn">30 · Nov 9</span><span class="tk">Past project</span><span class="tt">Slip-matched rift walnut throughout</span></figcaption></figure></div>
+
+  <h2 id="posts">The six new posts</h2>
+  <p class="sub">Swipe order as it will go out. Caption under each set. Hashtags sit in their own field, not in the caption.</p>
+  
+<article class="post" id="ogr-cube">
+  <div class="phead">
+    <div>
+      <p class="date">Sat 12 Sep · 10:00</p>
+      <h3>Fourteen feet of sequenced oak</h3>
+      <p class="project">Old Gravel Road, Whistler · The cube</p>
+    </div>
+    <span class="typ">Carousel · 4 slides</span>
+  </div>
+  <div class="strip"><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-cube-hallway-oak-hvac.jpg" alt="Fourteen feet of sequenced oak slide 1"><span class="snum">1 / 4</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-cube-fourteen-foot-entry.jpg" alt="Fourteen feet of sequenced oak slide 2"><span class="snum">2 / 4</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-cube-hvac-grill.jpg" alt="Fourteen feet of sequenced oak slide 3"><span class="snum">3 / 4</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-cube-quote.jpg" alt="Fourteen feet of sequenced oak slide 4"><span class="snum">4 / 4</span></figure></div>
+  <div class="cap">Old Gravel Road, Whistler, install in progress. What Radius calls the Cube is the rectilinear millwork at the centre of the house. Hallway wall panels in Pleasing Plank-Matched European White Oak, a CNC HVAC grill at the base, and sequenced, end-matched paneling at the entry, fourteen feet tall.<br><br>Millwork @radiusmillwork<br>Photography @mattanthonyphoto</div>
+  <p class="tags">#architecturalmillwork #europeanwhiteoak #wallpaneling #custommillwork #whistlerhomes #finewoodworking #install #joinery #bcmillwork #cabinetmaker</p>
+</article>
+<article class="post" id="ogr-pull">
+  <div class="phead">
+    <div>
+      <p class="date">Wed 16 Sep · 09:00</p>
+      <h3>A rabbet in the door edge</h3>
+      <p class="project">Old Gravel Road, Whistler · The pull</p>
+    </div>
+    <span class="typ">Carousel · 4 slides</span>
+  </div>
+  <div class="strip"><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-grip-pull-closed.jpg" alt="A rabbet in the door edge slide 1"><span class="snum">1 / 4</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-grip-pull-door-edge.jpg" alt="A rabbet in the door edge slide 2"><span class="snum">2 / 4</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-grip-pull-open.jpg" alt="A rabbet in the door edge slide 3"><span class="snum">3 / 4</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-grip-pull-reveal.jpg" alt="A rabbet in the door edge slide 4"><span class="snum">4 / 4</span></figure></div>
+  <div class="cap">A rabbet cut in the top of the door makes an Integrated Grip Pull in the edge. Closed, it reads as a reveal. No handle sitting on the face.<br><br>Millwork @radiusmillwork<br>Photography @mattanthonyphoto</div>
+  <p class="tags">#integratedpull #custommillwork #architecturalmillwork #joinery #europeanwhiteoak #finewoodworking #cabinetmaker #detail #bcmillwork #install</p>
+</article>
+<article class="post" id="ogr-kitchen">
+  <div class="phead">
+    <div>
+      <p class="date">Sat 19 Sep · 10:00</p>
+      <h3>Passage door into the pantry</h3>
+      <p class="project">Old Gravel Road, Whistler · The kitchen</p>
+    </div>
+    <span class="typ">Carousel · 3 slides</span>
+  </div>
+  <div class="strip"><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-kitchen-oak-over-appliance.jpg" alt="Passage door into the pantry slide 1"><span class="snum">1 / 3</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-kitchen-appliance-opening.jpg" alt="Passage door into the pantry slide 2"><span class="snum">2 / 3</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-kitchen-wall-panels.jpg" alt="Passage door into the pantry slide 3"><span class="snum">3 / 3</span></figure></div>
+  <div class="cap">Across the kitchen, the tall oak panel next to the cardboard protection is a millwork passage door into the pantry. Adjacent, a door sits over an appliance opening. Wall panels meet the wood soffit above.<br><br>Millwork @radiusmillwork<br>Photography @mattanthonyphoto</div>
+  <p class="tags">#customkitchen #architecturalmillwork #europeanwhiteoak #pantrydoor #install #finewoodworking #cabinetmaker #joinery #whistlerhomes #bcmillwork</p>
+</article>
+<article class="post" id="ogr-mudroom">
+  <div class="phead">
+    <div>
+      <p class="date">Wed 23 Sep · 09:00</p>
+      <h3>Paint, waiting on a top</h3>
+      <p class="project">Old Gravel Road, Whistler · The mudroom</p>
+    </div>
+    <span class="typ">Carousel · 3 slides</span>
+  </div>
+  <div class="strip"><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-mudroom-paint-install.jpg" alt="Paint, waiting on a top slide 1"><span class="snum">1 / 3</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-mudroom-routed-pulls.jpg" alt="Paint, waiting on a top slide 2"><span class="snum">2 / 3</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-mudroom-waiting-on-top.jpg" alt="Paint, waiting on a top slide 3"><span class="snum">3 / 3</span></figure></div>
+  <div class="cap">Mudroom install. Polyurethane paint finish, routed Integrated Pulls. The countertop is not in yet.<br><br>Millwork @radiusmillwork<br>Photography @mattanthonyphoto</div>
+  <p class="tags">#mudroom #customcabinetry #architecturalmillwork #install #paintfinish #integratedpull #finewoodworking #bcmillwork #cabinetmaker #progress</p>
+</article>
+<article class="post" id="ogr-island">
+  <div class="phead">
+    <div>
+      <p class="date">Wed 30 Sep · 09:00</p>
+      <h3>The island, before the countertop</h3>
+      <p class="project">Old Gravel Road, Whistler · The island</p>
+    </div>
+    <span class="typ">Single image</span>
+  </div>
+  <div class="strip"><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-island-before-countertop.jpg" alt="The island, before the countertop slide 1"><span class="snum">1 / 1</span></figure></div>
+  <div class="cap">Island in progress. Integrated Pulls in the paint, electrical still open. None of the countertops are in.<br><br>Millwork @radiusmillwork<br>Photography @mattanthonyphoto</div>
+  <p class="tags">#kitchenisland #customcabinetry #architecturalmillwork #install #progress #finewoodworking #bcmillwork #cabinetmaker #joinery #integratedpull</p>
+</article>
+<article class="post" id="ogr-closets">
+  <div class="phead">
+    <div>
+      <p class="date">Sat 3 Oct · 10:00</p>
+      <h3>Rift and slip-matched, slab doors</h3>
+      <p class="project">Old Gravel Road, Whistler · The bedrooms</p>
+    </div>
+    <span class="typ">Carousel · 3 slides</span>
+  </div>
+  <div class="strip"><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-closet-slab-doors.jpg" alt="Rift and slip-matched, slab doors slide 1"><span class="snum">1 / 3</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-closet-rift-oak.jpg" alt="Rift and slip-matched, slab doors slide 2"><span class="snum">2 / 3</span></figure><figure><img src="https://mattanthonyphoto.github.io/radius-portal-assets/old-gravel-road/old-gravel-road-closet-from-bedroom.jpg" alt="Rift and slip-matched, slab doors slide 3"><span class="snum">3 / 3</span></figure></div>
+  <div class="cap">Bedroom to closet. Still European White Oak, now Rift and Slip-Matched, sequenced slab doors. The public rooms were plank-matched. The private rooms change cut.<br><br>Millwork @radiusmillwork<br>Photography @mattanthonyphoto</div>
+  <p class="tags">#riftwhiteoak #slipmatched #closetdoors #architecturalmillwork #custommillwork #finewoodworking #joinery #bcmillwork #cabinetmaker #whistlerhomes</p>
+</article>
+
+  <h2>What I need from you</h2>
+  <ol>
+    <li>Open <a href="https://portal.mattanthonyphoto.com/approvals">the portal</a> and tap Approve or Request Changes on each of the six.</li>
+    <li>If a frame or a line is off, tell me on that post. I will change it and put it back in front of you.</li>
+    <li>The 2 to 9 Sep posts stay as they are.</li>
+  </ol>
+
+  <p><a class="cta" href="https://portal.mattanthonyphoto.com/approvals">Approve in the portal</a></p>
+  <footer>Matt Anthony · info@mattanthonyphoto.com · Nothing scheduled until you approve.</footer>
+</div>
+</body>
+</html>
